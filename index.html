@@ -2311,7 +2311,7 @@ h3 {
               <p class="kicker" data-i18n="accountKicker">Your SideStreet account</p>
               <h2 data-i18n="accountTitle">Log in and keep this app yours.</h2>
             </div>
-            <button class="info-button" type="button" aria-label="How to use Account" data-i18n-attr="data-info:accountInfo;aria-label:accountInfoLabel" data-info="Continue with Google opens Google's account chooser so you can pick an account already signed into this browser. Email and password still works on this device while testing.">?</button>
+            <button class="info-button" type="button" aria-label="How to use Account" data-i18n-attr="data-info:accountInfo;aria-label:accountInfoLabel" data-info="Continue with Google uses Google OAuth. Add your Google Client ID in the app code, then users can choose a Google account and return signed in.">?</button>
           </div>
 
           <div class="account-grid">
@@ -2809,7 +2809,7 @@ const baseTranslations = {
   datesReady: "Dates selected.",
   accountKicker: "Your SideStreet account",
   accountTitle: "Log in and keep this app yours.",
-  accountInfo: "Continue with Google opens Google's account chooser so you can pick an account already signed into this browser. Email and password still works on this device while testing.",
+  accountInfo: "Continue with Google uses Google OAuth. Add your Google Client ID in the app code, then users can choose a Google account and return signed in.",
   accountInfoLabel: "How to use Account",
   accountModeCreate: "Create account",
   accountModeLogin: "Log in",
@@ -4874,7 +4874,7 @@ function renderReviews() {
 
 const ACCOUNT_KEY = "sidestreet.account";
 const BUILT_IN_AUTH = {
-  googleAccountChooserUrl: "https://accounts.google.com/AccountChooser?service=accountsettings&continue=https%3A%2F%2Fmyaccount.google.com%2F"
+  googleClientId: "PASTE_YOUR_GOOGLE_CLIENT_ID_HERE"
 };
 let authMode = "signup";
 
@@ -4931,10 +4931,79 @@ function completeProviderLogin(provider, profile) {
   showToast("Logged in with Google.");
 }
 
+function configuredGoogleClientId() {
+  const id = authConfig().googleClientId?.trim() || "";
+  return id && !id.includes("PASTE_") ? id : "";
+}
+
+function googleRedirectUri() {
+  const url = new URL(window.location.href);
+  url.search = "";
+  url.hash = "";
+  return url.toString();
+}
+
+function cleanGoogleOAuthHash() {
+  if (!window.location.hash) return;
+  const clean = new URL(window.location.href);
+  clean.hash = "";
+  window.history.replaceState({}, "", clean.toString());
+}
+
+async function fetchGoogleProfile(accessToken) {
+  const response = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+    headers: { Authorization: `Bearer ${accessToken}` }
+  });
+  if (!response.ok) throw new Error("Google profile request failed");
+  return response.json();
+}
+
+async function applyGoogleOAuthReturn() {
+  if (!window.location.hash.includes("access_token")) return;
+  const params = new URLSearchParams(window.location.hash.slice(1));
+  const state = params.get("state") || "";
+  const expected = localStorage.getItem("sidestreet.googleOAuthState") || "";
+  const accessToken = params.get("access_token") || "";
+  cleanGoogleOAuthHash();
+  if (!accessToken || !expected || state !== expected) {
+    showToast("Google sign-in could not be verified.");
+    return;
+  }
+  localStorage.removeItem("sidestreet.googleOAuthState");
+  try {
+    const profile = await fetchGoogleProfile(accessToken);
+    completeProviderLogin("google", {
+      email: profile.email,
+      name: profile.name || profile.given_name || profile.email
+    });
+    setScreen("account");
+  } catch {
+    showToast("Google sign-in returned, but the profile could not load.");
+  }
+}
+
 function startGoogleLogin() {
-  const url = authConfig().googleAccountChooserUrl || authConfig().googleSignupUrl;
-  window.open(url, "_blank", "noopener,noreferrer");
-  showToast("Choose a Google account in the new tab.");
+  const clientId = configuredGoogleClientId();
+  if (!clientId) {
+    showToast("Add your Google Client ID first, then this returns signed in.");
+    return;
+  }
+  const state = `sidestreet-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  localStorage.setItem("sidestreet.googleOAuthState", state);
+  const params = new URLSearchParams({
+    client_id: clientId,
+    redirect_uri: googleRedirectUri(),
+    response_type: "token",
+    scope: "openid email profile",
+    prompt: "select_account",
+    include_granted_scopes: "true",
+    state
+  });
+  window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
+}
+
+function currentGoogleRedirectText() {
+  return googleRedirectUri();
 }
 
 function setAuthMode(mode) {
@@ -5010,6 +5079,7 @@ updateUsageBanner();
 renderReviews();
 setAuthMode("signup");
 renderAccount();
+applyGoogleOAuthReturn();
 updateHeroPhoto(currentCity);
 renderBooking();
 renderFlightCalendar();
