@@ -2311,7 +2311,7 @@ h3 {
               <p class="kicker" data-i18n="accountKicker">Your SideStreet account</p>
               <h2 data-i18n="accountTitle">Log in and keep this app yours.</h2>
             </div>
-            <button class="info-button" type="button" aria-label="How to use Account" data-i18n-attr="data-info:accountInfo;aria-label:accountInfoLabel" data-info="Continue with Google to open the Google account sign-up page, or use email and password on this device while testing.">?</button>
+            <button class="info-button" type="button" aria-label="How to use Account" data-i18n-attr="data-info:accountInfo;aria-label:accountInfoLabel" data-info="Continue with Google opens Google's account chooser so you can pick an account already signed into this browser. Email and password still works on this device while testing.">?</button>
           </div>
 
           <div class="account-grid">
@@ -2809,7 +2809,7 @@ const baseTranslations = {
   datesReady: "Dates selected.",
   accountKicker: "Your SideStreet account",
   accountTitle: "Log in and keep this app yours.",
-  accountInfo: "Continue with Google to open the Google account sign-up page, or use email and password on this device while testing.",
+  accountInfo: "Continue with Google opens Google's account chooser so you can pick an account already signed into this browser. Email and password still works on this device while testing.",
   accountInfoLabel: "How to use Account",
   accountModeCreate: "Create account",
   accountModeLogin: "Log in",
@@ -4874,7 +4874,7 @@ function renderReviews() {
 
 const ACCOUNT_KEY = "sidestreet.account";
 const BUILT_IN_AUTH = {
-  googleSignupUrl: "https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp"
+  googleAccountChooserUrl: "https://accounts.google.com/AccountChooser?service=accountsettings&continue=https%3A%2F%2Fmyaccount.google.com%2F"
 };
 let authMode = "signup";
 
@@ -4932,7 +4932,9 @@ function completeProviderLogin(provider, profile) {
 }
 
 function startGoogleLogin() {
-  window.location.href = authConfig().googleSignupUrl;
+  const url = authConfig().googleAccountChooserUrl || authConfig().googleSignupUrl;
+  window.open(url, "_blank", "noopener,noreferrer");
+  showToast("Choose a Google account in the new tab.");
 }
 
 function setAuthMode(mode) {
