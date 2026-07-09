@@ -1547,12 +1547,24 @@ h3 {
   box-shadow: 0 0 0 3px rgba(149, 240, 208, 0.14), var(--shadow);
 }
 
-.price-card span {
-  width: fit-content;
-  padding: 7px 10px;
+.price-card .plan-badge {
+  display: inline-flex;
+  width: max-content;
+  min-width: 0;
+  height: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  align-items: center;
+  align-self: start;
+  justify-content: center;
+  justify-self: start;
+  box-sizing: border-box;
+  padding: 0 12px;
   color: #06171d;
   font-size: 0.78rem;
   font-weight: 850;
+  line-height: 1;
+  white-space: nowrap;
   background: var(--amber);
   border-radius: 999px;
 }
@@ -2354,7 +2366,7 @@ h3 {
 
           <div class="pricing-grid">
             <article class="price-card">
-              <span>Starter</span>
+              <span class="plan-badge">Starter</span>
               <h3>Free</h3>
               <p>3 full SideStreet trip builds included.</p>
               <ul>
@@ -2365,7 +2377,7 @@ h3 {
               <button class="action glass full" type="button" data-screen="planner">Use free trips</button>
             </article>
             <article class="price-card featured">
-              <span>Best pick</span>
+              <span class="plan-badge">Best pick</span>
               <h3>$4.99 / month</h3>
               <p>Unlimited SideStreet trips for frequent travelers.</p>
               <ul>
@@ -2381,7 +2393,7 @@ h3 {
               <button class="action glass full" type="button" id="confirm-monthly-payment">Unlock Plus</button>
             </article>
             <article class="price-card">
-              <span>One trip</span>
+              <span class="plan-badge">One trip</span>
               <h3>$1.99</h3>
               <p>Good if you only need one city right now.</p>
               <ul>
