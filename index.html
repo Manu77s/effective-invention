@@ -2752,25 +2752,25 @@ const escapeHtml = (value) => String(value)
 
 const supportedLanguages = [
   ["en", "English"],
-  ["zh", "ä¸­æ–‡ / Chinese"],
-  ["hi", "à¤¹à¤¿à¤¨à¥à¤¦à¥€ / Hindi"],
-  ["es", "EspaÃ±ol / Spanish"],
-  ["fr", "FranÃ§ais / French"],
-  ["ar", "Ø§Ù„Ø¹Ø±Ø¨ÙŠØ© / Arabic"],
-  ["bn", "à¦¬à¦¾à¦‚à¦²à¦¾ / Bengali"],
-  ["pt", "PortuguÃªs / Portuguese"],
-  ["ru", "Ð ÑƒÑÑÐºÐ¸Ð¹ / Russian"],
-  ["ur", "Ø§Ø±Ø¯Ùˆ / Urdu"],
+  ["zh", "中文 / Chinese"],
+  ["hi", "हिन्दी / Hindi"],
+  ["es", "Español / Spanish"],
+  ["fr", "Français / French"],
+  ["ar", "العربية / Arabic"],
+  ["bn", "বাংলা / Bengali"],
+  ["pt", "Português / Portuguese"],
+  ["ru", "Русский / Russian"],
+  ["ur", "اردو / Urdu"],
   ["id", "Indonesia / Indonesian"],
   ["de", "Deutsch / German"],
-  ["ja", "æ—¥æœ¬èªž / Japanese"],
+  ["ja", "日本語 / Japanese"],
   ["sw", "Kiswahili / Swahili"],
-  ["mr", "à¤®à¤°à¤¾à¤ à¥€ / Marathi"],
-  ["te", "à°¤à±†à°²à±à°—à± / Telugu"],
-  ["tr", "TÃ¼rkÃ§e / Turkish"],
-  ["ta", "à®¤à®®à®¿à®´à¯ / Tamil"],
-  ["vi", "Tiáº¿ng Viá»‡t / Vietnamese"],
-  ["ko", "í•œêµ­ì–´ / Korean"]
+  ["mr", "मराठी / Marathi"],
+  ["te", "తెలుగు / Telugu"],
+  ["tr", "Türkçe / Turkish"],
+  ["ta", "தமிழ் / Tamil"],
+  ["vi", "Tiếng Việt / Vietnamese"],
+  ["ko", "한국어 / Korean"]
 ];
 
 const baseTranslations = {
@@ -2831,49 +2831,49 @@ const baseTranslations = {
 const translations = {
   en: baseTranslations,
   zh: {
-    navDiscover: "å‘çŽ°", navBuild: "åˆ›å»ºè¡Œç¨‹", navPath: "æˆ‘çš„è·¯çº¿", navBooking: "é¢„è®¢", navReviews: "è¯„ä»·", navPlus: "Plus", navAccount: "è´¦æˆ·",
-    bookingKicker: "æœºç¥¨é¢„è®¢", bookingTitle: "ä¸ºè¿™æ¡è·¯çº¿æŸ¥æ‰¾èˆªç­ã€‚", fromLabel: "å‡ºå‘åœ°", toLabel: "ç›®çš„åœ°", departLabel: "å‡ºå‘", returnLabel: "è¿”å›ž", travelersLabel: "æ—…å®¢", updateFlights: "æ›´æ–°èˆªç­æœç´¢", calendarCopy: "åœ¨æ—¥åŽ†ä¸­é€‰æ‹©å‡ºå‘å’Œè¿”å›žæ—¥æœŸã€‚", pickDepart: "é€‰æ‹©å‡ºå‘æ—¥æœŸã€‚", pickReturn: "çŽ°åœ¨é€‰æ‹©è¿”å›žæ—¥æœŸã€‚", datesReady: "æ—¥æœŸå·²é€‰æ‹©ã€‚",
-    accountKicker: "ä½ çš„ SideStreet è´¦æˆ·", accountTitle: "ç™»å½•å¹¶ä¿å­˜ä½ çš„åº”ç”¨ã€‚", continueGoogle: "ç»§ç»­ä½¿ç”¨ Google", orUseEmail: "æˆ–ä½¿ç”¨é‚®ç®±", emailLabel: "é‚®ç®±", passwordLabel: "å¯†ç ", languageTitle: "ç½‘ç«™è¯­è¨€", languageLabel: "è¯­è¨€", languageSaved: "è¯­è¨€å·²ä¿å­˜ã€‚"
+    navDiscover: "发现", navBuild: "创建行程", navPath: "我的路线", navBooking: "预订", navReviews: "评价", navPlus: "Plus", navAccount: "账户",
+    bookingKicker: "机票预订", bookingTitle: "为这条路线查找航班。", fromLabel: "出发地", toLabel: "目的地", departLabel: "出发", returnLabel: "返回", travelersLabel: "旅客", updateFlights: "更新航班搜索", calendarCopy: "在日历中选择出发和返回日期。", pickDepart: "选择出发日期。", pickReturn: "现在选择返回日期。", datesReady: "日期已选择。",
+    accountKicker: "你的 SideStreet 账户", accountTitle: "登录并保存你的应用。", continueGoogle: "继续使用 Google", orUseEmail: "或使用邮箱", emailLabel: "邮箱", passwordLabel: "密码", languageTitle: "网站语言", languageLabel: "语言", languageSaved: "语言已保存。"
   },
   hi: {
-    navDiscover: "à¤–à¥‹à¤œà¥‡à¤‚", navBuild: "à¤¯à¤¾à¤¤à¥à¤°à¤¾ à¤¬à¤¨à¤¾à¤à¤‚", navPath: "à¤®à¥‡à¤°à¤¾ à¤°à¤¾à¤¸à¥à¤¤à¤¾", navBooking: "à¤¬à¥à¤•à¤¿à¤‚à¤—", navReviews: "à¤¸à¤®à¥€à¤•à¥à¤·à¤¾à¤à¤‚", navPlus: "à¤ªà¥à¤²à¤¸", navAccount: "à¤–à¤¾à¤¤à¤¾",
-    bookingKicker: "à¤«à¥à¤²à¤¾à¤‡à¤Ÿ à¤¬à¥à¤•à¤¿à¤‚à¤—", bookingTitle: "à¤‡à¤¸ à¤°à¤¾à¤¸à¥à¤¤à¥‡ à¤•à¥‡ à¤²à¤¿à¤ à¤«à¥à¤²à¤¾à¤‡à¤Ÿ à¤–à¥‹à¤œà¥‡à¤‚à¥¤", fromLabel: "à¤•à¤¹à¤¾à¤‚ à¤¸à¥‡", toLabel: "à¤•à¤¹à¤¾à¤‚ à¤¤à¤•", departLabel: "à¤ªà¥à¤°à¤¸à¥à¤¥à¤¾à¤¨", returnLabel: "à¤µà¤¾à¤ªà¤¸à¥€", travelersLabel: "à¤¯à¤¾à¤¤à¥à¤°à¥€", updateFlights: "à¤«à¥à¤²à¤¾à¤‡à¤Ÿ à¤–à¥‹à¤œ à¤…à¤ªà¤¡à¥‡à¤Ÿ à¤•à¤°à¥‡à¤‚", calendarCopy: "à¤•à¥ˆà¤²à¥‡à¤‚à¤¡à¤° à¤¸à¥‡ à¤ªà¥à¤°à¤¸à¥à¤¥à¤¾à¤¨ à¤”à¤° à¤µà¤¾à¤ªà¤¸à¥€ à¤¤à¤¾à¤°à¥€à¤– à¤šà¥à¤¨à¥‡à¤‚à¥¤", pickDepart: "à¤ªà¥à¤°à¤¸à¥à¤¥à¤¾à¤¨ à¤¤à¤¾à¤°à¥€à¤– à¤šà¥à¤¨à¥‡à¤‚à¥¤", pickReturn: "à¤…à¤¬ à¤µà¤¾à¤ªà¤¸à¥€ à¤¤à¤¾à¤°à¥€à¤– à¤šà¥à¤¨à¥‡à¤‚à¥¤", datesReady: "à¤¤à¤¾à¤°à¥€à¤–à¥‡à¤‚ à¤šà¥à¤¨à¥€ à¤—à¤ˆà¤‚à¥¤",
-    accountKicker: "à¤†à¤ªà¤•à¤¾ SideStreet à¤–à¤¾à¤¤à¤¾", accountTitle: "à¤²à¥‰à¤— à¤‡à¤¨ à¤•à¤°à¥‡à¤‚ à¤”à¤° à¤à¤ª à¤…à¤ªà¤¨à¤¾ à¤°à¤–à¥‡à¤‚à¥¤", continueGoogle: "Google à¤¸à¥‡ à¤œà¤¾à¤°à¥€ à¤°à¤–à¥‡à¤‚", orUseEmail: "à¤¯à¤¾ à¤ˆà¤®à¥‡à¤² à¤‡à¤¸à¥à¤¤à¥‡à¤®à¤¾à¤² à¤•à¤°à¥‡à¤‚", emailLabel: "à¤ˆà¤®à¥‡à¤²", passwordLabel: "à¤ªà¤¾à¤¸à¤µà¤°à¥à¤¡", languageTitle: "à¤µà¥‡à¤¬à¤¸à¤¾à¤‡à¤Ÿ à¤­à¤¾à¤·à¤¾", languageLabel: "à¤­à¤¾à¤·à¤¾", languageSaved: "à¤­à¤¾à¤·à¤¾ à¤¸à¥‡à¤µ à¤¹à¥‹ à¤—à¤ˆà¥¤"
+    navDiscover: "खोजें", navBuild: "यात्रा बनाएं", navPath: "मेरा रास्ता", navBooking: "बुकिंग", navReviews: "समीक्षाएं", navPlus: "प्लस", navAccount: "खाता",
+    bookingKicker: "फ्लाइट बुकिंग", bookingTitle: "इस रास्ते के लिए फ्लाइट खोजें।", fromLabel: "कहां से", toLabel: "कहां तक", departLabel: "प्रस्थान", returnLabel: "वापसी", travelersLabel: "यात्री", updateFlights: "फ्लाइट खोज अपडेट करें", calendarCopy: "कैलेंडर से प्रस्थान और वापसी तारीख चुनें।", pickDepart: "प्रस्थान तारीख चुनें।", pickReturn: "अब वापसी तारीख चुनें।", datesReady: "तारीखें चुनी गईं।",
+    accountKicker: "आपका SideStreet खाता", accountTitle: "लॉग इन करें और ऐप अपना रखें।", continueGoogle: "Google से जारी रखें", orUseEmail: "या ईमेल इस्तेमाल करें", emailLabel: "ईमेल", passwordLabel: "पासवर्ड", languageTitle: "वेबसाइट भाषा", languageLabel: "भाषा", languageSaved: "भाषा सेव हो गई।"
   },
   es: {
-    navDiscover: "Descubrir", navBuild: "Crear viaje", navPath: "Mi ruta", navBooking: "Reservas", navReviews: "ReseÃ±as", navPlus: "Plus", navAccount: "Cuenta",
+    navDiscover: "Descubrir", navBuild: "Crear viaje", navPath: "Mi ruta", navBooking: "Reservas", navReviews: "Reseñas", navPlus: "Plus", navAccount: "Cuenta",
     bookingKicker: "Reserva de vuelos", bookingTitle: "Encuentra vuelos para esta ruta.", fromLabel: "Desde", toLabel: "Hasta", departLabel: "Salida", returnLabel: "Regreso", travelersLabel: "Viajeros", updateFlights: "Actualizar vuelos", calendarCopy: "Elige las fechas de salida y regreso en el calendario.", pickDepart: "Elige una fecha de salida.", pickReturn: "Ahora elige una fecha de regreso.", datesReady: "Fechas seleccionadas.",
-    accountKicker: "Tu cuenta de SideStreet", accountTitle: "Inicia sesiÃ³n y haz tuya la app.", continueGoogle: "Continuar con Google", orUseEmail: "o usa email", emailLabel: "Email", passwordLabel: "ContraseÃ±a", languageTitle: "Idioma del sitio", languageLabel: "Idioma", languageSaved: "Idioma guardado."
+    accountKicker: "Tu cuenta de SideStreet", accountTitle: "Inicia sesión y haz tuya la app.", continueGoogle: "Continuar con Google", orUseEmail: "o usa email", emailLabel: "Email", passwordLabel: "Contraseña", languageTitle: "Idioma del sitio", languageLabel: "Idioma", languageSaved: "Idioma guardado."
   },
   fr: {
-    navDiscover: "DÃ©couvrir", navBuild: "CrÃ©er un voyage", navPath: "Mon itinÃ©raire", navBooking: "RÃ©servation", navReviews: "Avis", navPlus: "Plus", navAccount: "Compte",
-    bookingKicker: "RÃ©servation de vols", bookingTitle: "Trouvez des vols pour cet itinÃ©raire.", fromLabel: "De", toLabel: "Ã€", departLabel: "DÃ©part", returnLabel: "Retour", travelersLabel: "Voyageurs", updateFlights: "Mettre Ã  jour les vols", calendarCopy: "Choisissez les dates de dÃ©part et de retour dans le calendrier.", pickDepart: "Choisissez une date de dÃ©part.", pickReturn: "Choisissez maintenant une date de retour.", datesReady: "Dates sÃ©lectionnÃ©es.",
-    accountKicker: "Votre compte SideStreet", accountTitle: "Connectez-vous et gardez l'app Ã  vous.", continueGoogle: "Continuer avec Google", orUseEmail: "ou utiliser l'email", emailLabel: "Email", passwordLabel: "Mot de passe", languageTitle: "Langue du site", languageLabel: "Langue", languageSaved: "Langue enregistrÃ©e."
+    navDiscover: "Découvrir", navBuild: "Créer un voyage", navPath: "Mon itinéraire", navBooking: "Réservation", navReviews: "Avis", navPlus: "Plus", navAccount: "Compte",
+    bookingKicker: "Réservation de vols", bookingTitle: "Trouvez des vols pour cet itinéraire.", fromLabel: "De", toLabel: "À", departLabel: "Départ", returnLabel: "Retour", travelersLabel: "Voyageurs", updateFlights: "Mettre à jour les vols", calendarCopy: "Choisissez les dates de départ et de retour dans le calendrier.", pickDepart: "Choisissez une date de départ.", pickReturn: "Choisissez maintenant une date de retour.", datesReady: "Dates sélectionnées.",
+    accountKicker: "Votre compte SideStreet", accountTitle: "Connectez-vous et gardez l'app à vous.", continueGoogle: "Continuer avec Google", orUseEmail: "ou utiliser l'email", emailLabel: "Email", passwordLabel: "Mot de passe", languageTitle: "Langue du site", languageLabel: "Langue", languageSaved: "Langue enregistrée."
   },
   ar: {
-    navDiscover: "Ø§ÙƒØªØ´Ù", navBuild: "Ø§Ø¨Ù† Ø§Ù„Ø±Ø­Ù„Ø©", navPath: "Ù…Ø³Ø§Ø±ÙŠ", navBooking: "Ø§Ù„Ø­Ø¬Ø²", navReviews: "Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø§Øª", navPlus: "Ø¨Ù„Ø³", navAccount: "Ø§Ù„Ø­Ø³Ø§Ø¨",
-    bookingKicker: "Ø­Ø¬Ø² Ø§Ù„Ø·ÙŠØ±Ø§Ù†", bookingTitle: "Ø§Ø¨Ø­Ø« Ø¹Ù† Ø±Ø­Ù„Ø§Øª Ù„Ù‡Ø°Ø§ Ø§Ù„Ù…Ø³Ø§Ø±.", fromLabel: "Ù…Ù†", toLabel: "Ø¥Ù„Ù‰", departLabel: "Ø§Ù„Ù…ØºØ§Ø¯Ø±Ø©", returnLabel: "Ø§Ù„Ø¹ÙˆØ¯Ø©", travelersLabel: "Ø§Ù„Ù…Ø³Ø§ÙØ±ÙˆÙ†", updateFlights: "ØªØ­Ø¯ÙŠØ« Ø¨Ø­Ø« Ø§Ù„Ø±Ø­Ù„Ø§Øª", calendarCopy: "Ø§Ø®ØªØ± ØªØ§Ø±ÙŠØ® Ø§Ù„Ù…ØºØ§Ø¯Ø±Ø© ÙˆØ§Ù„Ø¹ÙˆØ¯Ø© Ù…Ù† Ø§Ù„ØªÙ‚ÙˆÙŠÙ….", pickDepart: "Ø§Ø®ØªØ± ØªØ§Ø±ÙŠØ® Ø§Ù„Ù…ØºØ§Ø¯Ø±Ø©.", pickReturn: "Ø§Ø®ØªØ± Ø§Ù„Ø¢Ù† ØªØ§Ø±ÙŠØ® Ø§Ù„Ø¹ÙˆØ¯Ø©.", datesReady: "ØªÙ… Ø§Ø®ØªÙŠØ§Ø± Ø§Ù„ØªÙˆØ§Ø±ÙŠØ®.",
-    accountKicker: "Ø­Ø³Ø§Ø¨Ùƒ ÙÙŠ SideStreet", accountTitle: "Ø³Ø¬Ù„ Ø§Ù„Ø¯Ø®ÙˆÙ„ ÙˆØ§Ø¬Ø¹Ù„ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ Ø®Ø§ØµØ§ Ø¨Ùƒ.", continueGoogle: "Ø§Ù„Ù…ØªØ§Ø¨Ø¹Ø© Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Google", orUseEmail: "Ø£Ùˆ Ø§Ø³ØªØ®Ø¯Ù… Ø§Ù„Ø¨Ø±ÙŠØ¯", emailLabel: "Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ", passwordLabel: "ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±", languageTitle: "Ù„ØºØ© Ø§Ù„Ù…ÙˆÙ‚Ø¹", languageLabel: "Ø§Ù„Ù„ØºØ©", languageSaved: "ØªÙ… Ø­ÙØ¸ Ø§Ù„Ù„ØºØ©."
+    navDiscover: "اكتشف", navBuild: "ابن الرحلة", navPath: "مساري", navBooking: "الحجز", navReviews: "المراجعات", navPlus: "بلس", navAccount: "الحساب",
+    bookingKicker: "حجز الطيران", bookingTitle: "ابحث عن رحلات لهذا المسار.", fromLabel: "من", toLabel: "إلى", departLabel: "المغادرة", returnLabel: "العودة", travelersLabel: "المسافرون", updateFlights: "تحديث بحث الرحلات", calendarCopy: "اختر تاريخ المغادرة والعودة من التقويم.", pickDepart: "اختر تاريخ المغادرة.", pickReturn: "اختر الآن تاريخ العودة.", datesReady: "تم اختيار التواريخ.",
+    accountKicker: "حسابك في SideStreet", accountTitle: "سجل الدخول واجعل التطبيق خاصا بك.", continueGoogle: "المتابعة باستخدام Google", orUseEmail: "أو استخدم البريد", emailLabel: "البريد الإلكتروني", passwordLabel: "كلمة المرور", languageTitle: "لغة الموقع", languageLabel: "اللغة", languageSaved: "تم حفظ اللغة."
   },
   bn: {
-    navDiscover: "à¦–à§à¦à¦œà§à¦¨", navBuild: "à¦Ÿà§à¦°à¦¿à¦ª à¦¬à¦¾à¦¨à¦¾à¦¨", navPath: "à¦†à¦®à¦¾à¦° à¦ªà¦¥", navBooking: "à¦¬à§à¦•à¦¿à¦‚", navReviews: "à¦°à¦¿à¦­à¦¿à¦‰", navPlus: "à¦ªà§à¦²à¦¾à¦¸", navAccount: "à¦…à§à¦¯à¦¾à¦•à¦¾à¦‰à¦¨à§à¦Ÿ",
-    bookingKicker: "à¦«à§à¦²à¦¾à¦‡à¦Ÿ à¦¬à§à¦•à¦¿à¦‚", bookingTitle: "à¦à¦‡ à¦ªà¦¥à§‡à¦° à¦œà¦¨à§à¦¯ à¦«à§à¦²à¦¾à¦‡à¦Ÿ à¦–à§à¦à¦œà§à¦¨à¥¤", fromLabel: "à¦¥à§‡à¦•à§‡", toLabel: "à¦¯à§‡à¦–à¦¾à¦¨à§‡", departLabel: "à¦¯à¦¾à¦¤à§à¦°à¦¾", returnLabel: "à¦«à§‡à¦°à¦¾", travelersLabel: "à¦¯à¦¾à¦¤à§à¦°à§€", updateFlights: "à¦«à§à¦²à¦¾à¦‡à¦Ÿ à¦–à§‹à¦à¦œà¦¾ à¦†à¦ªà¦¡à§‡à¦Ÿ à¦•à¦°à§à¦¨", calendarCopy: "à¦•à§à¦¯à¦¾à¦²à§‡à¦¨à§à¦¡à¦¾à¦° à¦¥à§‡à¦•à§‡ à¦¯à¦¾à¦¤à§à¦°à¦¾ à¦“ à¦«à§‡à¦°à¦¾à¦° à¦¤à¦¾à¦°à¦¿à¦– à¦¬à§‡à¦›à§‡ à¦¨à¦¿à¦¨à¥¤", pickDepart: "à¦¯à¦¾à¦¤à§à¦°à¦¾à¦° à¦¤à¦¾à¦°à¦¿à¦– à¦¬à§‡à¦›à§‡ à¦¨à¦¿à¦¨à¥¤", pickReturn: "à¦à¦–à¦¨ à¦«à§‡à¦°à¦¾à¦° à¦¤à¦¾à¦°à¦¿à¦– à¦¬à§‡à¦›à§‡ à¦¨à¦¿à¦¨à¥¤", datesReady: "à¦¤à¦¾à¦°à¦¿à¦– à¦¬à§‡à¦›à§‡ à¦¨à§‡à¦“à§Ÿà¦¾ à¦¹à§Ÿà§‡à¦›à§‡à¥¤",
-    accountKicker: "à¦†à¦ªà¦¨à¦¾à¦° SideStreet à¦…à§à¦¯à¦¾à¦•à¦¾à¦‰à¦¨à§à¦Ÿ", accountTitle: "à¦²à¦— à¦‡à¦¨ à¦•à¦°à§à¦¨ à¦à¦¬à¦‚ à¦…à§à¦¯à¦¾à¦ªà¦Ÿà¦¿ à¦¨à¦¿à¦œà§‡à¦° à¦•à¦°à§à¦¨à¥¤", continueGoogle: "Google à¦¦à¦¿à§Ÿà§‡ à¦šà¦¾à¦²à¦¿à§Ÿà§‡ à¦¯à¦¾à¦¨", orUseEmail: "à¦…à¦¥à¦¬à¦¾ à¦‡à¦®à§‡à¦² à¦¬à§à¦¯à¦¬à¦¹à¦¾à¦° à¦•à¦°à§à¦¨", emailLabel: "à¦‡à¦®à§‡à¦²", passwordLabel: "à¦ªà¦¾à¦¸à¦“à§Ÿà¦¾à¦°à§à¦¡", languageTitle: "à¦“à§Ÿà§‡à¦¬à¦¸à¦¾à¦‡à¦Ÿ à¦­à¦¾à¦·à¦¾", languageLabel: "à¦­à¦¾à¦·à¦¾", languageSaved: "à¦­à¦¾à¦·à¦¾ à¦¸à¦‚à¦°à¦•à§à¦·à¦¿à¦¤à¥¤"
+    navDiscover: "খুঁজুন", navBuild: "ট্রিপ বানান", navPath: "আমার পথ", navBooking: "বুকিং", navReviews: "রিভিউ", navPlus: "প্লাস", navAccount: "অ্যাকাউন্ট",
+    bookingKicker: "ফ্লাইট বুকিং", bookingTitle: "এই পথের জন্য ফ্লাইট খুঁজুন।", fromLabel: "থেকে", toLabel: "যেখানে", departLabel: "যাত্রা", returnLabel: "ফেরা", travelersLabel: "যাত্রী", updateFlights: "ফ্লাইট খোঁজা আপডেট করুন", calendarCopy: "ক্যালেন্ডার থেকে যাত্রা ও ফেরার তারিখ বেছে নিন।", pickDepart: "যাত্রার তারিখ বেছে নিন।", pickReturn: "এখন ফেরার তারিখ বেছে নিন।", datesReady: "তারিখ বেছে নেওয়া হয়েছে।",
+    accountKicker: "আপনার SideStreet অ্যাকাউন্ট", accountTitle: "লগ ইন করুন এবং অ্যাপটি নিজের করুন।", continueGoogle: "Google দিয়ে চালিয়ে যান", orUseEmail: "অথবা ইমেল ব্যবহার করুন", emailLabel: "ইমেল", passwordLabel: "পাসওয়ার্ড", languageTitle: "ওয়েবসাইট ভাষা", languageLabel: "ভাষা", languageSaved: "ভাষা সংরক্ষিত।"
   },
   pt: {
-    navDiscover: "Descobrir", navBuild: "Criar viagem", navPath: "Meu caminho", navBooking: "Reservas", navReviews: "AvaliaÃ§Ãµes", navPlus: "Plus", navAccount: "Conta",
-    bookingKicker: "Reserva de voos", bookingTitle: "Encontre voos para este caminho.", fromLabel: "De", toLabel: "Para", departLabel: "Partida", returnLabel: "Volta", travelersLabel: "Viajantes", updateFlights: "Atualizar voos", calendarCopy: "Escolha as datas de ida e volta no calendÃ¡rio.", pickDepart: "Escolha a data de partida.", pickReturn: "Agora escolha a data de volta.", datesReady: "Datas selecionadas.",
+    navDiscover: "Descobrir", navBuild: "Criar viagem", navPath: "Meu caminho", navBooking: "Reservas", navReviews: "Avaliações", navPlus: "Plus", navAccount: "Conta",
+    bookingKicker: "Reserva de voos", bookingTitle: "Encontre voos para este caminho.", fromLabel: "De", toLabel: "Para", departLabel: "Partida", returnLabel: "Volta", travelersLabel: "Viajantes", updateFlights: "Atualizar voos", calendarCopy: "Escolha as datas de ida e volta no calendário.", pickDepart: "Escolha a data de partida.", pickReturn: "Agora escolha a data de volta.", datesReady: "Datas selecionadas.",
     accountKicker: "Sua conta SideStreet", accountTitle: "Entre e deixe o app com a sua cara.", continueGoogle: "Continuar com Google", orUseEmail: "ou use email", emailLabel: "Email", passwordLabel: "Senha", languageTitle: "Idioma do site", languageLabel: "Idioma", languageSaved: "Idioma salvo."
   },
   ru: {
-    navDiscover: "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ", navBuild: "Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð¿Ð¾ÐµÐ·Ð´ÐºÑƒ", navPath: "ÐœÐ¾Ð¹ Ð¼Ð°Ñ€ÑˆÑ€ÑƒÑ‚", navBooking: "Ð‘Ñ€Ð¾Ð½Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ", navReviews: "ÐžÑ‚Ð·Ñ‹Ð²Ñ‹", navPlus: "ÐŸÐ»ÑŽÑ", navAccount: "ÐÐºÐºÐ°ÑƒÐ½Ñ‚",
-    bookingKicker: "Ð‘Ñ€Ð¾Ð½Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ñ€ÐµÐ¹ÑÐ¾Ð²", bookingTitle: "ÐÐ°Ð¹Ð´Ð¸Ñ‚Ðµ Ñ€ÐµÐ¹ÑÑ‹ Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð¼Ð°Ñ€ÑˆÑ€ÑƒÑ‚Ð°.", fromLabel: "ÐžÑ‚ÐºÑƒÐ´Ð°", toLabel: "ÐšÑƒÐ´Ð°", departLabel: "Ð’Ñ‹Ð»ÐµÑ‚", returnLabel: "Ð’Ð¾Ð·Ð²Ñ€Ð°Ñ‚", travelersLabel: "ÐŸÑƒÑ‚ÐµÑˆÐµÑÑ‚Ð²ÐµÐ½Ð½Ð¸ÐºÐ¸", updateFlights: "ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¿Ð¾Ð¸ÑÐº Ñ€ÐµÐ¹ÑÐ¾Ð²", calendarCopy: "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´Ð°Ñ‚Ñ‹ Ð²Ñ‹Ð»ÐµÑ‚Ð° Ð¸ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‚Ð° Ð² ÐºÐ°Ð»ÐµÐ½Ð´Ð°Ñ€Ðµ.", pickDepart: "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´Ð°Ñ‚Ñƒ Ð²Ñ‹Ð»ÐµÑ‚Ð°.", pickReturn: "Ð¢ÐµÐ¿ÐµÑ€ÑŒ Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´Ð°Ñ‚Ñƒ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‚Ð°.", datesReady: "Ð”Ð°Ñ‚Ñ‹ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ñ‹.",
-    accountKicker: "Ð’Ð°Ñˆ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚ SideStreet", accountTitle: "Ð’Ð¾Ð¹Ð´Ð¸Ñ‚Ðµ Ð¸ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹Ñ‚Ðµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ.", continueGoogle: "ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ Ñ Google", orUseEmail: "Ð¸Ð»Ð¸ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ email", emailLabel: "Email", passwordLabel: "ÐŸÐ°Ñ€Ð¾Ð»ÑŒ", languageTitle: "Ð¯Ð·Ñ‹Ðº ÑÐ°Ð¹Ñ‚Ð°", languageLabel: "Ð¯Ð·Ñ‹Ðº", languageSaved: "Ð¯Ð·Ñ‹Ðº ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½."
+    navDiscover: "Открыть", navBuild: "Создать поездку", navPath: "Мой маршрут", navBooking: "Бронирование", navReviews: "Отзывы", navPlus: "Плюс", navAccount: "Аккаунт",
+    bookingKicker: "Бронирование рейсов", bookingTitle: "Найдите рейсы для этого маршрута.", fromLabel: "Откуда", toLabel: "Куда", departLabel: "Вылет", returnLabel: "Возврат", travelersLabel: "Путешественники", updateFlights: "Обновить поиск рейсов", calendarCopy: "Выберите даты вылета и возврата в календаре.", pickDepart: "Выберите дату вылета.", pickReturn: "Теперь выберите дату возврата.", datesReady: "Даты выбраны.",
+    accountKicker: "Ваш аккаунт SideStreet", accountTitle: "Войдите и настройте приложение.", continueGoogle: "Продолжить с Google", orUseEmail: "или используйте email", emailLabel: "Email", passwordLabel: "Пароль", languageTitle: "Язык сайта", languageLabel: "Язык", languageSaved: "Язык сохранен."
   },
   ur: {
-    navDiscover: "Ø¯Ø±ÛŒØ§ÙØª", navBuild: "Ø³ÙØ± Ø¨Ù†Ø§Ø¦ÛŒÚº", navPath: "Ù…ÛŒØ±Ø§ Ø±Ø§Ø³ØªÛ", navBooking: "Ø¨Ú©Ù†Ú¯", navReviews: "Ø¬Ø§Ø¦Ø²Û’", navPlus: "Ù¾Ù„Ø³", navAccount: "Ø§Ú©Ø§Ø¤Ù†Ù¹",
-    bookingKicker: "ÙÙ„Ø§Ø¦Ù¹ Ø¨Ú©Ù†Ú¯", bookingTitle: "Ø§Ø³ Ø±Ø§Ø³ØªÛ’ Ú©Û’ Ù„ÛŒÛ’ Ù¾Ø±ÙˆØ§Ø²ÛŒÚº ØªÙ„Ø§Ø´ Ú©Ø±ÛŒÚºÛ”", fromLabel: "Ø³Û’", toLabel: "ØªÚ©", departLabel: "Ø±ÙˆØ§Ù†Ú¯ÛŒ", returnLabel: "ÙˆØ§Ù¾Ø³ÛŒ", travelersLabel: "Ù…Ø³Ø§ÙØ±", updateFlights: "Ù¾Ø±ÙˆØ§Ø²ÛŒÚº Ø§Ù¾ ÚˆÛŒÙ¹ Ú©Ø±ÛŒÚº", calendarCopy: "Ú©ÛŒÙ„Ù†ÚˆØ± Ø³Û’ Ø±ÙˆØ§Ù†Ú¯ÛŒ Ø§ÙˆØ± ÙˆØ§Ù¾Ø³ÛŒ Ú©ÛŒ ØªØ§Ø±ÛŒØ®ÛŒÚº Ú†Ù†ÛŒÚºÛ”", pickDepart: "Ø±ÙˆØ§Ù†Ú¯ÛŒ Ú©ÛŒ ØªØ§Ø±ÛŒØ® Ú†Ù†ÛŒÚºÛ”", pickReturn: "Ø§Ø¨ ÙˆØ§Ù¾Ø³ÛŒ Ú©ÛŒ ØªØ§Ø±ÛŒØ® Ú†Ù†ÛŒÚºÛ”", datesReady: "ØªØ§Ø±ÛŒØ®ÛŒÚº Ù…Ù†ØªØ®Ø¨ ÛÙˆ Ú¯Ø¦ÛŒÚºÛ”",
-    accountKicker: "Ø¢Ù¾ Ú©Ø§ SideStreet Ø§Ú©Ø§Ø¤Ù†Ù¹", accountTitle: "Ù„Ø§Ú¯ Ø§Ù† Ú©Ø±ÛŒÚº Ø§ÙˆØ± Ø§ÛŒÙ¾ Ú©Ùˆ Ø§Ù¾Ù†Ø§ Ø¨Ù†Ø§Ø¦ÛŒÚºÛ”", continueGoogle: "Google Ú©Û’ Ø³Ø§ØªÚ¾ Ø¬Ø§Ø±ÛŒ Ø±Ú©Ú¾ÛŒÚº", orUseEmail: "ÛŒØ§ Ø§ÛŒ Ù…ÛŒÙ„ Ø§Ø³ØªØ¹Ù…Ø§Ù„ Ú©Ø±ÛŒÚº", emailLabel: "Ø§ÛŒ Ù…ÛŒÙ„", passwordLabel: "Ù¾Ø§Ø³ ÙˆØ±Úˆ", languageTitle: "ÙˆÛŒØ¨ Ø³Ø§Ø¦Ù¹ Ø²Ø¨Ø§Ù†", languageLabel: "Ø²Ø¨Ø§Ù†", languageSaved: "Ø²Ø¨Ø§Ù† Ù…Ø­ÙÙˆØ¸ ÛÙˆ Ú¯Ø¦ÛŒÛ”"
+    navDiscover: "دریافت", navBuild: "سفر بنائیں", navPath: "میرا راستہ", navBooking: "بکنگ", navReviews: "جائزے", navPlus: "پلس", navAccount: "اکاؤنٹ",
+    bookingKicker: "فلائٹ بکنگ", bookingTitle: "اس راستے کے لیے پروازیں تلاش کریں۔", fromLabel: "سے", toLabel: "تک", departLabel: "روانگی", returnLabel: "واپسی", travelersLabel: "مسافر", updateFlights: "پروازیں اپ ڈیٹ کریں", calendarCopy: "کیلنڈر سے روانگی اور واپسی کی تاریخیں چنیں۔", pickDepart: "روانگی کی تاریخ چنیں۔", pickReturn: "اب واپسی کی تاریخ چنیں۔", datesReady: "تاریخیں منتخب ہو گئیں۔",
+    accountKicker: "آپ کا SideStreet اکاؤنٹ", accountTitle: "لاگ ان کریں اور ایپ کو اپنا بنائیں۔", continueGoogle: "Google کے ساتھ جاری رکھیں", orUseEmail: "یا ای میل استعمال کریں", emailLabel: "ای میل", passwordLabel: "پاس ورڈ", languageTitle: "ویب سائٹ زبان", languageLabel: "زبان", languageSaved: "زبان محفوظ ہو گئی۔"
   },
   id: {
     navDiscover: "Jelajah", navBuild: "Buat Trip", navPath: "Jalur Saya", navBooking: "Booking", navReviews: "Ulasan", navPlus: "Plus", navAccount: "Akun",
@@ -2882,13 +2882,13 @@ const translations = {
   },
   de: {
     navDiscover: "Entdecken", navBuild: "Trip bauen", navPath: "Mein Pfad", navBooking: "Buchung", navReviews: "Bewertungen", navPlus: "Plus", navAccount: "Konto",
-    bookingKicker: "Flugbuchung", bookingTitle: "Finde FlÃ¼ge fÃ¼r diesen Pfad.", fromLabel: "Von", toLabel: "Nach", departLabel: "Hinflug", returnLabel: "RÃ¼ckflug", travelersLabel: "Reisende", updateFlights: "Flugsuche aktualisieren", calendarCopy: "WÃ¤hle Hin- und RÃ¼ckflugdatum im Kalender.", pickDepart: "WÃ¤hle ein Hinflugdatum.", pickReturn: "WÃ¤hle jetzt ein RÃ¼ckflugdatum.", datesReady: "Daten ausgewÃ¤hlt.",
+    bookingKicker: "Flugbuchung", bookingTitle: "Finde Flüge für diesen Pfad.", fromLabel: "Von", toLabel: "Nach", departLabel: "Hinflug", returnLabel: "Rückflug", travelersLabel: "Reisende", updateFlights: "Flugsuche aktualisieren", calendarCopy: "Wähle Hin- und Rückflugdatum im Kalender.", pickDepart: "Wähle ein Hinflugdatum.", pickReturn: "Wähle jetzt ein Rückflugdatum.", datesReady: "Daten ausgewählt.",
     accountKicker: "Dein SideStreet-Konto", accountTitle: "Einloggen und die App behalten.", continueGoogle: "Mit Google fortfahren", orUseEmail: "oder E-Mail nutzen", emailLabel: "E-Mail", passwordLabel: "Passwort", languageTitle: "Website-Sprache", languageLabel: "Sprache", languageSaved: "Sprache gespeichert."
   },
   ja: {
-    navDiscover: "ç™ºè¦‹", navBuild: "æ—…ã‚’ä½œæˆ", navPath: "ãƒžã‚¤ãƒ«ãƒ¼ãƒˆ", navBooking: "äºˆç´„", navReviews: "ãƒ¬ãƒ“ãƒ¥ãƒ¼", navPlus: "ãƒ—ãƒ©ã‚¹", navAccount: "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆ",
-    bookingKicker: "èˆªç©ºåˆ¸äºˆç´„", bookingTitle: "ã“ã®ãƒ«ãƒ¼ãƒˆã®ãƒ•ãƒ©ã‚¤ãƒˆã‚’æŽ¢ã™ã€‚", fromLabel: "å‡ºç™ºåœ°", toLabel: "ç›®çš„åœ°", departLabel: "å‡ºç™º", returnLabel: "å¸°ã‚Š", travelersLabel: "æ—…è¡Œè€…", updateFlights: "ãƒ•ãƒ©ã‚¤ãƒˆæ¤œç´¢ã‚’æ›´æ–°", calendarCopy: "ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ã§å‡ºç™ºæ—¥ã¨å¸°ç€æ—¥ã‚’é¸ã³ã¾ã™ã€‚", pickDepart: "å‡ºç™ºæ—¥ã‚’é¸ã‚“ã§ãã ã•ã„ã€‚", pickReturn: "æ¬¡ã«å¸°ç€æ—¥ã‚’é¸ã‚“ã§ãã ã•ã„ã€‚", datesReady: "æ—¥ä»˜ã‚’é¸æŠžã—ã¾ã—ãŸã€‚",
-    accountKicker: "SideStreetã‚¢ã‚«ã‚¦ãƒ³ãƒˆ", accountTitle: "ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ã‚¢ãƒ—ãƒªã‚’ä¿å­˜ã€‚", continueGoogle: "Googleã§ç¶šè¡Œ", orUseEmail: "ã¾ãŸã¯ãƒ¡ãƒ¼ãƒ«ã‚’ä½¿ç”¨", emailLabel: "ãƒ¡ãƒ¼ãƒ«", passwordLabel: "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰", languageTitle: "ã‚µã‚¤ãƒˆè¨€èªž", languageLabel: "è¨€èªž", languageSaved: "è¨€èªžã‚’ä¿å­˜ã—ã¾ã—ãŸã€‚"
+    navDiscover: "発見", navBuild: "旅を作成", navPath: "マイルート", navBooking: "予約", navReviews: "レビュー", navPlus: "プラス", navAccount: "アカウント",
+    bookingKicker: "航空券予約", bookingTitle: "このルートのフライトを探す。", fromLabel: "出発地", toLabel: "目的地", departLabel: "出発", returnLabel: "帰り", travelersLabel: "旅行者", updateFlights: "フライト検索を更新", calendarCopy: "カレンダーで出発日と帰着日を選びます。", pickDepart: "出発日を選んでください。", pickReturn: "次に帰着日を選んでください。", datesReady: "日付を選択しました。",
+    accountKicker: "SideStreetアカウント", accountTitle: "ログインしてアプリを保存。", continueGoogle: "Googleで続行", orUseEmail: "またはメールを使用", emailLabel: "メール", passwordLabel: "パスワード", languageTitle: "サイト言語", languageLabel: "言語", languageSaved: "言語を保存しました。"
   },
   sw: {
     navDiscover: "Gundua", navBuild: "Jenga Safari", navPath: "Njia Yangu", navBooking: "Kuweka Nafasi", navReviews: "Maoni", navPlus: "Plus", navAccount: "Akaunti",
@@ -2896,34 +2896,34 @@ const translations = {
     accountKicker: "Akaunti yako ya SideStreet", accountTitle: "Ingia na uweke app iwe yako.", continueGoogle: "Endelea na Google", orUseEmail: "au tumia barua pepe", emailLabel: "Barua pepe", passwordLabel: "Nenosiri", languageTitle: "Lugha ya tovuti", languageLabel: "Lugha", languageSaved: "Lugha imehifadhiwa."
   },
   mr: {
-    navDiscover: "à¤¶à¥‹à¤§à¤¾", navBuild: "à¤Ÿà¥à¤°à¤¿à¤ª à¤¤à¤¯à¤¾à¤° à¤•à¤°à¤¾", navPath: "à¤®à¤¾à¤à¤¾ à¤®à¤¾à¤°à¥à¤—", navBooking: "à¤¬à¥à¤•à¤¿à¤‚à¤—", navReviews: "à¤ªà¥à¤¨à¤°à¤¾à¤µà¤²à¥‹à¤•à¤¨à¥‡", navPlus: "à¤ªà¥à¤²à¤¸", navAccount: "à¤–à¤¾à¤¤à¥‡",
-    bookingKicker: "à¤«à¥à¤²à¤¾à¤‡à¤Ÿ à¤¬à¥à¤•à¤¿à¤‚à¤—", bookingTitle: "à¤¯à¤¾ à¤®à¤¾à¤°à¥à¤—à¤¾à¤¸à¤¾à¤ à¥€ à¤«à¥à¤²à¤¾à¤‡à¤Ÿ à¤¶à¥‹à¤§à¤¾.", fromLabel: "à¤•à¥à¤ à¥‚à¤¨", toLabel: "à¤•à¥à¤ à¥‡", departLabel: "à¤ªà¥à¤°à¤¸à¥à¤¥à¤¾à¤¨", returnLabel: "à¤ªà¤°à¤¤", travelersLabel: "à¤ªà¥à¤°à¤µà¤¾à¤¸à¥€", updateFlights: "à¤«à¥à¤²à¤¾à¤‡à¤Ÿ à¤¶à¥‹à¤§ à¤…à¤ªà¤¡à¥‡à¤Ÿ à¤•à¤°à¤¾", calendarCopy: "à¤•à¥…à¤²à¥‡à¤‚à¤¡à¤°à¤®à¤§à¥‚à¤¨ à¤ªà¥à¤°à¤¸à¥à¤¥à¤¾à¤¨ à¤†à¤£à¤¿ à¤ªà¤°à¤¤à¥€à¤šà¥à¤¯à¤¾ à¤¤à¤¾à¤°à¤–à¤¾ à¤¨à¤¿à¤µà¤¡à¤¾.", pickDepart: "à¤ªà¥à¤°à¤¸à¥à¤¥à¤¾à¤¨ à¤¤à¤¾à¤°à¥€à¤– à¤¨à¤¿à¤µà¤¡à¤¾.", pickReturn: "à¤†à¤¤à¤¾ à¤ªà¤°à¤¤à¥€à¤šà¥€ à¤¤à¤¾à¤°à¥€à¤– à¤¨à¤¿à¤µà¤¡à¤¾.", datesReady: "à¤¤à¤¾à¤°à¤–à¤¾ à¤¨à¤¿à¤µà¤¡à¤²à¥à¤¯à¤¾.",
-    accountKicker: "à¤¤à¥à¤®à¤šà¥‡ SideStreet à¤–à¤¾à¤¤à¥‡", accountTitle: "à¤²à¥‰à¤— à¤‡à¤¨ à¤•à¤°à¤¾ à¤†à¤£à¤¿ app à¤¤à¥à¤®à¤šà¥‡ à¤ à¥‡à¤µà¤¾.", continueGoogle: "Google à¤¸à¤¹ à¤ªà¥à¤¢à¥‡ à¤œà¤¾", orUseEmail: "à¤•à¤¿à¤‚à¤µà¤¾ à¤ˆà¤®à¥‡à¤² à¤µà¤¾à¤ªà¤°à¤¾", emailLabel: "à¤ˆà¤®à¥‡à¤²", passwordLabel: "à¤ªà¤¾à¤¸à¤µà¤°à¥à¤¡", languageTitle: "à¤µà¥‡à¤¬à¤¸à¤¾à¤‡à¤Ÿ à¤­à¤¾à¤·à¤¾", languageLabel: "à¤­à¤¾à¤·à¤¾", languageSaved: "à¤­à¤¾à¤·à¤¾ à¤¸à¥‡à¤µ à¤à¤¾à¤²à¥€."
+    navDiscover: "शोधा", navBuild: "ट्रिप तयार करा", navPath: "माझा मार्ग", navBooking: "बुकिंग", navReviews: "पुनरावलोकने", navPlus: "प्लस", navAccount: "खाते",
+    bookingKicker: "फ्लाइट बुकिंग", bookingTitle: "या मार्गासाठी फ्लाइट शोधा.", fromLabel: "कुठून", toLabel: "कुठे", departLabel: "प्रस्थान", returnLabel: "परत", travelersLabel: "प्रवासी", updateFlights: "फ्लाइट शोध अपडेट करा", calendarCopy: "कॅलेंडरमधून प्रस्थान आणि परतीच्या तारखा निवडा.", pickDepart: "प्रस्थान तारीख निवडा.", pickReturn: "आता परतीची तारीख निवडा.", datesReady: "तारखा निवडल्या.",
+    accountKicker: "तुमचे SideStreet खाते", accountTitle: "लॉग इन करा आणि app तुमचे ठेवा.", continueGoogle: "Google सह पुढे जा", orUseEmail: "किंवा ईमेल वापरा", emailLabel: "ईमेल", passwordLabel: "पासवर्ड", languageTitle: "वेबसाइट भाषा", languageLabel: "भाषा", languageSaved: "भाषा सेव झाली."
   },
   te: {
-    navDiscover: "à°•à°¨à±à°—à±Šà°¨à±", navBuild: "à°Ÿà±à°°à°¿à°ªà± à°¨à°¿à°°à±à°®à°¿à°‚à°šà±", navPath: "à°¨à°¾ à°®à°¾à°°à±à°—à°‚", navBooking: "à°¬à±à°•à°¿à°‚à°—à±", navReviews: "à°¸à°®à±€à°•à±à°·à°²à±", navPlus: "à°ªà±à°²à°¸à±", navAccount: "à°–à°¾à°¤à°¾",
-    bookingKicker: "à°µà°¿à°®à°¾à°¨ à°¬à±à°•à°¿à°‚à°—à±", bookingTitle: "à°ˆ à°®à°¾à°°à±à°—à°¾à°¨à°¿à°•à°¿ à°µà°¿à°®à°¾à°¨à°¾à°²à± à°•à°¨à±à°—à±Šà°¨à°‚à°¡à°¿.", fromLabel: "à°¨à±à°‚à°¡à°¿", toLabel: "à°•à±", departLabel: "à°¬à°¯à°²à±à°¦à±‡à°°à±", returnLabel: "à°¤à°¿à°°à±à°—à±", travelersLabel: "à°ªà±à°°à°¯à°¾à°£à°¿à°•à±à°²à±", updateFlights: "à°µà°¿à°®à°¾à°¨ à°¶à±‹à°§à°¨ à°¨à°µà±€à°•à°°à°¿à°‚à°šà±", calendarCopy: "à°•à±à°¯à°¾à°²à±†à°‚à°¡à°°à± à°¨à±à°‚à°¡à°¿ à°¬à°¯à°²à±à°¦à±‡à°°à± à°®à°°à°¿à°¯à± à°¤à°¿à°°à±à°—à± à°¤à±‡à°¦à±€à°²à± à°Žà°‚à°šà±à°•à±‹à°‚à°¡à°¿.", pickDepart: "à°¬à°¯à°²à±à°¦à±‡à°°à± à°¤à±‡à°¦à±€ à°Žà°‚à°šà±à°•à±‹à°‚à°¡à°¿.", pickReturn: "à°‡à°ªà±à°ªà±à°¡à± à°¤à°¿à°°à±à°—à± à°¤à±‡à°¦à±€ à°Žà°‚à°šà±à°•à±‹à°‚à°¡à°¿.", datesReady: "à°¤à±‡à°¦à±€à°²à± à°Žà°‚à°ªà°¿à°•à°¯à±à°¯à°¾à°¯à°¿.",
-    accountKicker: "à°®à±€ SideStreet à°–à°¾à°¤à°¾", accountTitle: "à°²à°¾à°—à°¿à°¨à± à°šà±‡à°¸à°¿ app à°¨à± à°®à±€à°¦à°¿ à°šà±‡à°¸à±à°•à±‹à°‚à°¡à°¿.", continueGoogle: "Google à°¤à±‹ à°•à±Šà°¨à°¸à°¾à°—à±", orUseEmail: "à°²à±‡à°¦à°¾ à°‡à°®à±†à°¯à°¿à°²à± à°µà°¾à°¡à°‚à°¡à°¿", emailLabel: "à°‡à°®à±†à°¯à°¿à°²à±", passwordLabel: "à°ªà°¾à°¸à±â€Œà°µà°°à±à°¡à±", languageTitle: "à°µà±†à°¬à±â€Œà°¸à±ˆà°Ÿà± à°­à°¾à°·", languageLabel: "à°­à°¾à°·", languageSaved: "à°­à°¾à°· à°¸à±‡à°µà± à°…à°¯à°¿à°‚à°¦à°¿."
+    navDiscover: "కనుగొను", navBuild: "ట్రిప్ నిర్మించు", navPath: "నా మార్గం", navBooking: "బుకింగ్", navReviews: "సమీక్షలు", navPlus: "ప్లస్", navAccount: "ఖాతా",
+    bookingKicker: "విమాన బుకింగ్", bookingTitle: "ఈ మార్గానికి విమానాలు కనుగొనండి.", fromLabel: "నుండి", toLabel: "కు", departLabel: "బయలుదేరు", returnLabel: "తిరుగు", travelersLabel: "ప్రయాణికులు", updateFlights: "విమాన శోధన నవీకరించు", calendarCopy: "క్యాలెండర్ నుండి బయలుదేరు మరియు తిరుగు తేదీలు ఎంచుకోండి.", pickDepart: "బయలుదేరు తేదీ ఎంచుకోండి.", pickReturn: "ఇప్పుడు తిరుగు తేదీ ఎంచుకోండి.", datesReady: "తేదీలు ఎంపికయ్యాయి.",
+    accountKicker: "మీ SideStreet ఖాతా", accountTitle: "లాగిన్ చేసి app ను మీది చేసుకోండి.", continueGoogle: "Google తో కొనసాగు", orUseEmail: "లేదా ఇమెయిల్ వాడండి", emailLabel: "ఇమెయిల్", passwordLabel: "పాస్‌వర్డ్", languageTitle: "వెబ్‌సైట్ భాష", languageLabel: "భాష", languageSaved: "భాష సేవ్ అయింది."
   },
   tr: {
-    navDiscover: "KeÅŸfet", navBuild: "Gezi OluÅŸtur", navPath: "Yolum", navBooking: "Rezervasyon", navReviews: "Yorumlar", navPlus: "Plus", navAccount: "Hesap",
-    bookingKicker: "UÃ§ak rezervasyonu", bookingTitle: "Bu rota iÃ§in uÃ§uÅŸ bul.", fromLabel: "Nereden", toLabel: "Nereye", departLabel: "GidiÅŸ", returnLabel: "DÃ¶nÃ¼ÅŸ", travelersLabel: "Yolcular", updateFlights: "UÃ§uÅŸ aramasÄ±nÄ± gÃ¼ncelle", calendarCopy: "GidiÅŸ ve dÃ¶nÃ¼ÅŸ tarihlerini takvimden seÃ§.", pickDepart: "GidiÅŸ tarihini seÃ§.", pickReturn: "Åžimdi dÃ¶nÃ¼ÅŸ tarihini seÃ§.", datesReady: "Tarihler seÃ§ildi.",
-    accountKicker: "SideStreet hesabÄ±n", accountTitle: "GiriÅŸ yap ve app senin olsun.", continueGoogle: "Google ile devam et", orUseEmail: "veya e-posta kullan", emailLabel: "E-posta", passwordLabel: "Åžifre", languageTitle: "Site dili", languageLabel: "Dil", languageSaved: "Dil kaydedildi."
+    navDiscover: "Keşfet", navBuild: "Gezi Oluştur", navPath: "Yolum", navBooking: "Rezervasyon", navReviews: "Yorumlar", navPlus: "Plus", navAccount: "Hesap",
+    bookingKicker: "Uçak rezervasyonu", bookingTitle: "Bu rota için uçuş bul.", fromLabel: "Nereden", toLabel: "Nereye", departLabel: "Gidiş", returnLabel: "Dönüş", travelersLabel: "Yolcular", updateFlights: "Uçuş aramasını güncelle", calendarCopy: "Gidiş ve dönüş tarihlerini takvimden seç.", pickDepart: "Gidiş tarihini seç.", pickReturn: "Şimdi dönüş tarihini seç.", datesReady: "Tarihler seçildi.",
+    accountKicker: "SideStreet hesabın", accountTitle: "Giriş yap ve app senin olsun.", continueGoogle: "Google ile devam et", orUseEmail: "veya e-posta kullan", emailLabel: "E-posta", passwordLabel: "Şifre", languageTitle: "Site dili", languageLabel: "Dil", languageSaved: "Dil kaydedildi."
   },
   ta: {
-    navDiscover: "à®•à®£à¯à®Ÿà®±à®¿", navBuild: "à®ªà®¯à®£à®®à¯ à®‰à®°à¯à®µà®¾à®•à¯à®•à¯", navPath: "à®Žà®©à¯ à®ªà®¾à®¤à¯ˆ", navBooking: "à®ªà¯à®•à¯à®•à®¿à®™à¯", navReviews: "à®µà®¿à®®à®°à¯à®šà®©à®™à¯à®•à®³à¯", navPlus: "à®ªà®¿à®³à®¸à¯", navAccount: "à®•à®£à®•à¯à®•à¯",
-    bookingKicker: "à®µà®¿à®®à®¾à®© à®ªà¯à®•à¯à®•à®¿à®™à¯", bookingTitle: "à®‡à®¨à¯à®¤ à®ªà®¾à®¤à¯ˆà®•à¯à®•à¯ à®µà®¿à®®à®¾à®©à®™à¯à®•à®³à¯ˆ à®¤à¯‡à®Ÿà¯.", fromLabel: "à®‡à®°à¯à®¨à¯à®¤à¯", toLabel: "à®µà®°à¯ˆ", departLabel: "à®ªà¯à®±à®ªà¯à®ªà¯", returnLabel: "à®¤à®¿à®°à¯à®®à¯à®ªà®²à¯", travelersLabel: "à®ªà®¯à®£à®¿à®•à®³à¯", updateFlights: "à®µà®¿à®®à®¾à®© à®¤à¯‡à®Ÿà®²à¯ˆ à®ªà¯à®¤à¯à®ªà¯à®ªà®¿", calendarCopy: "à®•à®¾à®²à®£à¯à®Ÿà®°à®¿à®²à¯ à®ªà¯à®±à®ªà¯à®ªà¯ à®®à®±à¯à®±à¯à®®à¯ à®¤à®¿à®°à¯à®®à¯à®ªà¯à®®à¯ à®¤à¯‡à®¤à®¿à®•à®³à¯ˆ à®¤à¯‡à®°à¯à®µà¯ à®šà¯†à®¯à¯.", pickDepart: "à®ªà¯à®±à®ªà¯à®ªà®Ÿà¯à®®à¯ à®¤à¯‡à®¤à®¿à®¯à¯ˆ à®¤à¯‡à®°à¯à®µà¯ à®šà¯†à®¯à¯.", pickReturn: "à®‡à®ªà¯à®ªà¯‹à®¤à¯ à®¤à®¿à®°à¯à®®à¯à®ªà¯à®®à¯ à®¤à¯‡à®¤à®¿à®¯à¯ˆ à®¤à¯‡à®°à¯à®µà¯ à®šà¯†à®¯à¯.", datesReady: "à®¤à¯‡à®¤à®¿à®•à®³à¯ à®¤à¯‡à®°à¯à®µà¯ à®šà¯†à®¯à¯à®¯à®ªà¯à®ªà®Ÿà¯à®Ÿà®©.",
-    accountKicker: "à®‰à®™à¯à®•à®³à¯ SideStreet à®•à®£à®•à¯à®•à¯", accountTitle: "à®‰à®³à¯à®¨à¯à®´à¯ˆà®¨à¯à®¤à¯ app à® à®‰à®™à¯à®•à®³à¯ à®µà®šà®®à®¾à®•à¯à®•à¯à®™à¯à®•à®³à¯.", continueGoogle: "Google à®‰à®Ÿà®©à¯ à®¤à¯Šà®Ÿà®°à®µà¯à®®à¯", orUseEmail: "à®…à®²à¯à®²à®¤à¯ à®®à®¿à®©à¯à®©à®žà¯à®šà®²à¯ à®ªà®¯à®©à¯à®ªà®Ÿà¯à®¤à¯à®¤à¯", emailLabel: "à®®à®¿à®©à¯à®©à®žà¯à®šà®²à¯", passwordLabel: "à®•à®Ÿà®µà¯à®šà¯à®šà¯Šà®²à¯", languageTitle: "à®µà®²à¯ˆà®¤à¯à®¤à®³ à®®à¯Šà®´à®¿", languageLabel: "à®®à¯Šà®´à®¿", languageSaved: "à®®à¯Šà®´à®¿ à®šà¯‡à®®à®¿à®•à¯à®•à®ªà¯à®ªà®Ÿà¯à®Ÿà®¤à¯."
+    navDiscover: "கண்டறி", navBuild: "பயணம் உருவாக்கு", navPath: "என் பாதை", navBooking: "புக்கிங்", navReviews: "விமர்சனங்கள்", navPlus: "பிளஸ்", navAccount: "கணக்கு",
+    bookingKicker: "விமான புக்கிங்", bookingTitle: "இந்த பாதைக்கு விமானங்களை தேடு.", fromLabel: "இருந்து", toLabel: "வரை", departLabel: "புறப்பு", returnLabel: "திரும்பல்", travelersLabel: "பயணிகள்", updateFlights: "விமான தேடலை புதுப்பி", calendarCopy: "காலண்டரில் புறப்பு மற்றும் திரும்பும் தேதிகளை தேர்வு செய்.", pickDepart: "புறப்படும் தேதியை தேர்வு செய்.", pickReturn: "இப்போது திரும்பும் தேதியை தேர்வு செய்.", datesReady: "தேதிகள் தேர்வு செய்யப்பட்டன.",
+    accountKicker: "உங்கள் SideStreet கணக்கு", accountTitle: "உள்நுழைந்து app ஐ உங்கள் வசமாக்குங்கள்.", continueGoogle: "Google உடன் தொடரவும்", orUseEmail: "அல்லது மின்னஞ்சல் பயன்படுத்து", emailLabel: "மின்னஞ்சல்", passwordLabel: "கடவுச்சொல்", languageTitle: "வலைத்தள மொழி", languageLabel: "மொழி", languageSaved: "மொழி சேமிக்கப்பட்டது."
   },
   vi: {
-    navDiscover: "KhÃ¡m phÃ¡", navBuild: "Táº¡o chuyáº¿n Ä‘i", navPath: "ÄÆ°á»ng cá»§a tÃ´i", navBooking: "Äáº·t chá»—", navReviews: "ÄÃ¡nh giÃ¡", navPlus: "Plus", navAccount: "TÃ i khoáº£n",
-    bookingKicker: "Äáº·t vÃ© mÃ¡y bay", bookingTitle: "TÃ¬m chuyáº¿n bay cho lá»™ trÃ¬nh nÃ y.", fromLabel: "Tá»«", toLabel: "Äáº¿n", departLabel: "Äi", returnLabel: "Vá»", travelersLabel: "KhÃ¡ch", updateFlights: "Cáº­p nháº­t chuyáº¿n bay", calendarCopy: "Chá»n ngÃ y Ä‘i vÃ  ngÃ y vá» trÃªn lá»‹ch.", pickDepart: "Chá»n ngÃ y Ä‘i.", pickReturn: "BÃ¢y giá» chá»n ngÃ y vá».", datesReady: "ÄÃ£ chá»n ngÃ y.",
-    accountKicker: "TÃ i khoáº£n SideStreet cá»§a báº¡n", accountTitle: "ÄÄƒng nháº­p vÃ  giá»¯ app lÃ  cá»§a báº¡n.", continueGoogle: "Tiáº¿p tá»¥c vá»›i Google", orUseEmail: "hoáº·c dÃ¹ng email", emailLabel: "Email", passwordLabel: "Máº­t kháº©u", languageTitle: "NgÃ´n ngá»¯ website", languageLabel: "NgÃ´n ngá»¯", languageSaved: "ÄÃ£ lÆ°u ngÃ´n ngá»¯."
+    navDiscover: "Khám phá", navBuild: "Tạo chuyến đi", navPath: "Đường của tôi", navBooking: "Đặt chỗ", navReviews: "Đánh giá", navPlus: "Plus", navAccount: "Tài khoản",
+    bookingKicker: "Đặt vé máy bay", bookingTitle: "Tìm chuyến bay cho lộ trình này.", fromLabel: "Từ", toLabel: "Đến", departLabel: "Đi", returnLabel: "Về", travelersLabel: "Khách", updateFlights: "Cập nhật chuyến bay", calendarCopy: "Chọn ngày đi và ngày về trên lịch.", pickDepart: "Chọn ngày đi.", pickReturn: "Bây giờ chọn ngày về.", datesReady: "Đã chọn ngày.",
+    accountKicker: "Tài khoản SideStreet của bạn", accountTitle: "Đăng nhập và giữ app là của bạn.", continueGoogle: "Tiếp tục với Google", orUseEmail: "hoặc dùng email", emailLabel: "Email", passwordLabel: "Mật khẩu", languageTitle: "Ngôn ngữ website", languageLabel: "Ngôn ngữ", languageSaved: "Đã lưu ngôn ngữ."
   },
   ko: {
-    navDiscover: "ë°œê²¬", navBuild: "ì—¬í–‰ ë§Œë“¤ê¸°", navPath: "ë‚´ ê²½ë¡œ", navBooking: "ì˜ˆì•½", navReviews: "ë¦¬ë·°", navPlus: "í”ŒëŸ¬ìŠ¤", navAccount: "ê³„ì •",
-    bookingKicker: "í•­ê³µê¶Œ ì˜ˆì•½", bookingTitle: "ì´ ê²½ë¡œì˜ í•­ê³µíŽ¸ì„ ì°¾ìœ¼ì„¸ìš”.", fromLabel: "ì¶œë°œ", toLabel: "ë„ì°©", departLabel: "ê°€ëŠ” ë‚ ", returnLabel: "ì˜¤ëŠ” ë‚ ", travelersLabel: "ì—¬í–‰ìž", updateFlights: "í•­ê³µíŽ¸ ê²€ìƒ‰ ì—…ë°ì´íŠ¸", calendarCopy: "ë‹¬ë ¥ì—ì„œ ê°€ëŠ” ë‚ ê³¼ ì˜¤ëŠ” ë‚ ì„ ì„ íƒí•˜ì„¸ìš”.", pickDepart: "ê°€ëŠ” ë‚ ì„ ì„ íƒí•˜ì„¸ìš”.", pickReturn: "ì´ì œ ì˜¤ëŠ” ë‚ ì„ ì„ íƒí•˜ì„¸ìš”.", datesReady: "ë‚ ì§œê°€ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.",
-    accountKicker: "ë‚´ SideStreet ê³„ì •", accountTitle: "ë¡œê·¸ì¸í•˜ê³  ì•±ì„ ë‚´ ê²ƒìœ¼ë¡œ ë§Œë“œì„¸ìš”.", continueGoogle: "Googleë¡œ ê³„ì†", orUseEmail: "ë˜ëŠ” ì´ë©”ì¼ ì‚¬ìš©", emailLabel: "ì´ë©”ì¼", passwordLabel: "ë¹„ë°€ë²ˆí˜¸", languageTitle: "ì›¹ì‚¬ì´íŠ¸ ì–¸ì–´", languageLabel: "ì–¸ì–´", languageSaved: "ì–¸ì–´ê°€ ì €ìž¥ë˜ì—ˆìŠµë‹ˆë‹¤."
+    navDiscover: "발견", navBuild: "여행 만들기", navPath: "내 경로", navBooking: "예약", navReviews: "리뷰", navPlus: "플러스", navAccount: "계정",
+    bookingKicker: "항공권 예약", bookingTitle: "이 경로의 항공편을 찾으세요.", fromLabel: "출발", toLabel: "도착", departLabel: "가는 날", returnLabel: "오는 날", travelersLabel: "여행자", updateFlights: "항공편 검색 업데이트", calendarCopy: "달력에서 가는 날과 오는 날을 선택하세요.", pickDepart: "가는 날을 선택하세요.", pickReturn: "이제 오는 날을 선택하세요.", datesReady: "날짜가 선택되었습니다.",
+    accountKicker: "내 SideStreet 계정", accountTitle: "로그인하고 앱을 내 것으로 만드세요.", continueGoogle: "Google로 계속", orUseEmail: "또는 이메일 사용", emailLabel: "이메일", passwordLabel: "비밀번호", languageTitle: "웹사이트 언어", languageLabel: "언어", languageSaved: "언어가 저장되었습니다."
   }
 };
 
@@ -5333,6 +5333,20 @@ $("#share-plan").addEventListener("click", async () => {
   await sharePlanFile();
 });
 
+
+
+(function clearOldSideStreetCache() {
+  if ("serviceWorker" in navigator && navigator.serviceWorker.getRegistrations) {
+    navigator.serviceWorker.getRegistrations()
+      .then((registrations) => registrations.forEach((registration) => registration.unregister()))
+      .catch(() => {});
+  }
+  if ("caches" in window) {
+    caches.keys()
+      .then((keys) => Promise.all(keys.filter((key) => key.startsWith("sidestreet-")).map((key) => caches.delete(key))))
+      .catch(() => {});
+  }
+})();
 
     </script>
   </body>
