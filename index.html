@@ -2120,7 +2120,7 @@ h3 {
                 <label class="field">
                   <span>Hotel Google Maps link</span>
                   <input id="hotel-map" type="url" placeholder="Paste a Google Maps hotel link">
-                  <small class="field-note">Full links with a place name or coordinates work best. Short share links need the hotel name above.</small>
+                  <small class="field-note">Paste a full Google Maps place link and SideStreet fills the hotel name above. Short share links work for directions but cannot reveal the hotel name by themselves.</small>
                 </label>
                 <div class="base-status" id="base-status">
                   <span>Map base</span>
@@ -3584,8 +3584,17 @@ function generatedStop(city, focus, index, options = {}) {
 function cleanMapText(value) {
   return decodeURIComponent(String(value || ""))
     .replace(/\+/g, " ")
+    .replace(/\s*-\s*Google\s*Maps\s*$/i, "")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function readableMapLabel(label) {
+  const text = cleanMapText(label);
+  if (!text) return "";
+  if (/^(hotel coordinates|google maps saved place|google maps hotel link)$/i.test(text)) return "";
+  if (/^https?:\/\//i.test(text)) return "";
+  return text;
 }
 
 function cityQualifiedMapText(value, city) {
@@ -3601,13 +3610,14 @@ function pinMapLink(query) {
 function mapDetailsFromLink(value) {
   const raw = String(value || "").trim();
   if (!raw) return { query: "", label: "", pinUrl: "", short: false, placeId: "" };
+  const looksLikeMapUrl = /^https?:\/\//i.test(raw) || /\b(google|maps|goo\.gl)\b/i.test(raw);
   try {
     const url = new URL(raw);
     const full = decodeURIComponent(url.href);
     const path = decodeURIComponent(url.pathname || "");
     const placeMatch = path.match(/\/place\/([^/@]+)/);
     const searchMatch = path.match(/\/search\/([^/@]+)/);
-    const pathLabel = placeMatch ? cleanMapText(placeMatch[1]) : "";
+    const pathLabel = readableMapLabel(placeMatch ? placeMatch[1] : searchMatch ? searchMatch[1] : "");
 
     const placeId = url.searchParams.get("query_place_id") || url.searchParams.get("place_id");
     const cid = url.searchParams.get("cid");
@@ -3639,17 +3649,23 @@ function mapDetailsFromLink(value) {
     const q = url.searchParams.get("q") || url.searchParams.get("query");
     if (q) {
       const query = cleanMapText(q);
-      return { query, label: query, pinUrl: pinMapLink(query), short: false, placeId: placeId || "" };
+      return { query, label: readableMapLabel(query) || query, pinUrl: pinMapLink(query), short: false, placeId: placeId || "" };
+    }
+
+    const destination = url.searchParams.get("destination") || url.searchParams.get("daddr") || url.searchParams.get("addr");
+    if (destination) {
+      const query = cleanMapText(destination);
+      return { query, label: readableMapLabel(query) || query, pinUrl: pinMapLink(query), short: false, placeId: placeId || "" };
     }
 
     if (placeMatch) {
       const query = cleanMapText(placeMatch[1]);
-      return { query, label: query, pinUrl: pinMapLink(query), short: false, placeId: placeId || "" };
+      return { query, label: pathLabel || query, pinUrl: pinMapLink(query), short: false, placeId: placeId || "" };
     }
 
     if (searchMatch) {
       const query = cleanMapText(searchMatch[1]);
-      return { query, label: query, pinUrl: pinMapLink(query), short: false, placeId: placeId || "" };
+      return { query, label: pathLabel || query, pinUrl: pinMapLink(query), short: false, placeId: placeId || "" };
     }
 
     const dirParts = path.split("/").map(cleanMapText).filter(Boolean);
@@ -3657,7 +3673,7 @@ function mapDetailsFromLink(value) {
       .filter((part) => !["maps", "dir", "place", "search"].includes(part.toLowerCase()))
       .filter((part) => !part.startsWith("@") && !part.includes("!"))
       .reverse()
-      .find((part) => /[a-zA-Z]/.test(part));
+      .find((part) => /[a-zA-Z]/.test(part) && readableMapLabel(part));
     if (dirCandidate) {
       return { query: dirCandidate, label: dirCandidate, pinUrl: pinMapLink(dirCandidate), short: false, placeId: placeId || "" };
     }
@@ -3673,6 +3689,9 @@ function mapDetailsFromLink(value) {
     }
 
   } catch {
+    if (looksLikeMapUrl) {
+      return { query: "", label: "", pinUrl: "", short: false, placeId: "" };
+    }
     const typed = cleanMapText(raw);
     return { query: typed, label: typed, pinUrl: pinMapLink(typed), short: false, placeId: "" };
   }
@@ -3683,13 +3702,20 @@ function hotelBaseInfo(city, base, hotelMap) {
   const parsed = mapDetailsFromLink(hotelMap || "");
   const typedBase = (base || "").trim();
   const cityBase = city.base.split(",")[0].trim();
-  const anchor = parsed.query || typedBase || cityBase;
+  const detectedLabel = readableMapLabel(parsed.label);
+  const label = detectedLabel || typedBase || cityBase;
+  const anchor = parsed.short
+    ? typedBase || parsed.query || cityBase
+    : parsed.query || typedBase || cityBase;
   const pinUrl = parsed.pinUrl || pinMapLink(`${anchor}, ${city.name}`);
-  const label = parsed.label || typedBase || cityBase;
   const detail = parsed.query
     ? parsed.short
-      ? "Using the pasted Google Maps hotel link as your start point."
-      : "Hotel link is active for directions."
+      ? typedBase
+        ? "Short Google Maps link saved. Hotel name above is used as the visible start point."
+        : "Short Google Maps links hide the exact hotel name. Paste a full place link or type the hotel name above."
+      : detectedLabel
+        ? "Detected this hotel from the Google Maps link."
+        : "Google Maps link is active for directions."
     : parsed.short
       ? "Short links hide the exact hotel. Add the hotel name above for the cleanest directions."
       : "Using your typed hotel/neighborhood as the map base.";
@@ -3705,11 +3731,10 @@ function syncBaseFromHotelLink() {
   if (!hotelMap) return;
   const parsed = mapDetailsFromLink(hotelMap);
   const baseInput = $("#base");
-  if (!baseInput || !parsed.label || parsed.short) return;
-  const current = baseInput.value.trim();
-  const cityDefaults = currentCity.base.split(",").map((item) => item.trim().toLowerCase());
-  if (!current || cityDefaults.includes(current.toLowerCase())) {
-    baseInput.value = parsed.label;
+  const detectedLabel = readableMapLabel(parsed.label);
+  if (!baseInput || !detectedLabel || parsed.short) return;
+  if (baseInput.value.trim() !== detectedLabel) {
+    baseInput.value = detectedLabel;
   }
 }
 
