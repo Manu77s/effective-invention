@@ -2254,7 +2254,7 @@ h3 {
               <p class="kicker">SideStreet Plus</p>
               <h2>Three free paths, then keep scouting with Plus.</h2>
             </div>
-            <button class="info-button" type="button" aria-label="How to use Plus" data-info="Plus opens a Revolut / MB WAY payment link. Because this temporary link cannot verify payment automatically, return after paying and tap the matching I paid button.">?</button>
+            <button class="info-button" type="button" aria-label="How to use Plus" data-info="Plus opens a Revolut / MB WAY payment link. Because this temporary link cannot verify payment automatically, users need an owner unlock code after payment is confirmed.">?</button>
           </div>
 
           <div class="pricing-grid">
@@ -2279,7 +2279,11 @@ h3 {
                 <li>Booking search links</li>
               </ul>
               <button class="action primary full" type="button" id="monthly-upgrade">Pay EUR 4.99 with Revolut</button>
-              <button class="action glass full" type="button" id="confirm-monthly-payment">I paid - unlock Plus</button>
+              <label class="field unlock-field">
+                <span>Unlock code</span>
+                <input id="monthly-unlock-code" type="text" autocomplete="off" placeholder="Code from SideStreet">
+              </label>
+              <button class="action glass full" type="button" id="confirm-monthly-payment">Unlock Plus</button>
             </article>
             <article class="price-card">
               <span>One trip</span>
@@ -2291,10 +2295,14 @@ h3 {
                 <li>Maps buttons</li>
               </ul>
               <button class="action glass full" type="button" id="one-trip-upgrade">Pay EUR 1.99 with Revolut</button>
-              <button class="action glass full" type="button" id="confirm-one-trip-payment">I paid - unlock one trip</button>
+              <label class="field unlock-field">
+                <span>Unlock code</span>
+                <input id="one-trip-unlock-code" type="text" autocomplete="off" placeholder="Code from SideStreet">
+              </label>
+              <button class="action glass full" type="button" id="confirm-one-trip-payment">Unlock one trip</button>
             </article>
           </div>
-          <p class="pricing-note">Temporary Revolut / MB WAY payments open in a new tab and unlock manually on this device.</p>
+          <p class="pricing-note">After payment, send proof to SideStreet. You only unlock after receiving a code.</p>
         </section>
 
         <section class="screen" id="account" data-screen-panel="account">
@@ -2738,6 +2746,10 @@ const PLUS_ACCESS_KEY = "sidestreet.plusAccess";
 const PAYMENT_LINKS = {
   monthly: "https://revolut.me/manuel2olx?currency=EUR&amount=499",
   oneTrip: "https://revolut.me/manuel2olx?currency=EUR&amount=199&note="
+};
+const UNLOCK_CODE_HASHES = {
+  monthly: "3cd63064be2f0f2dbe6fc840e51aeba188c87df218806d7fac4e13ad13ccfd40",
+  oneTrip: "ffbf82c17a4d93bc2b9ba9eeb47d2abe57f209f1805c4d51f538a04407f25e37"
 };
 const photoCache = new Map(JSON.parse(localStorage.getItem("hiddenPath.photoCache") || "[]"));
 
@@ -4632,7 +4644,47 @@ function openCheckout(type) {
   }
   localStorage.setItem("sidestreet.pendingPayment", type);
   window.open(checkout.toString(), "_blank", "noopener,noreferrer");
-  showToast("Revolut opened. Return here and tap I paid after sending.");
+  showToast("Revolut opened. Return here with your unlock code.");
+}
+
+function normalizeUnlockCode(value) {
+  return String(value || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+}
+
+async function sha256Hex(value) {
+  if (!window.crypto?.subtle) return "";
+  const encoded = new TextEncoder().encode(value);
+  const hash = await window.crypto.subtle.digest("SHA-256", encoded);
+  return Array.from(new Uint8Array(hash))
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+async function unlockWithCode(type) {
+  const input = type === "monthly" ? $("#monthly-unlock-code") : $("#one-trip-unlock-code");
+  const code = normalizeUnlockCode(input?.value);
+  if (!code) {
+    showToast("Enter the unlock code first.");
+    return;
+  }
+  const digest = await sha256Hex(code);
+  if (!digest) {
+    showToast("Unlock codes work on the published https site.");
+    return;
+  }
+  if (digest !== UNLOCK_CODE_HASHES[type]) {
+    showToast("That unlock code is not valid.");
+    return;
+  }
+  if (type === "monthly") {
+    setMonthlyAccess();
+    showToast("Plus unlocked on this device.");
+  } else {
+    addOneTripCredit();
+    showToast("One extra trip unlocked on this device.");
+  }
+  if (input) input.value = "";
+  localStorage.removeItem("sidestreet.pendingPayment");
 }
 
 function applyPaymentReturn() {
@@ -5184,15 +5236,11 @@ $("#one-trip-upgrade")?.addEventListener("click", () => {
 });
 
 $("#confirm-monthly-payment")?.addEventListener("click", () => {
-  setMonthlyAccess();
-  localStorage.removeItem("sidestreet.pendingPayment");
-  showToast("Plus unlocked on this device.");
+  unlockWithCode("monthly");
 });
 
 $("#confirm-one-trip-payment")?.addEventListener("click", () => {
-  addOneTripCredit();
-  localStorage.removeItem("sidestreet.pendingPayment");
-  showToast("One extra trip unlocked on this device.");
+  unlockWithCode("oneTrip");
 });
 
 $("#account-form")?.addEventListener("submit", (event) => {
