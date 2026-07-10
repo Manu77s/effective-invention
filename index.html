@@ -1560,7 +1560,7 @@ h3 {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
 }
 
@@ -1573,6 +1573,13 @@ h3 {
 .price-card.featured {
   border-color: rgba(156, 240, 199, 0.54);
   box-shadow: 0 0 0 3px rgba(156, 240, 199, 0.14), var(--shadow);
+}
+
+.price-card.supporter-card {
+  border-color: rgba(247, 201, 92, 0.46);
+  background:
+    linear-gradient(145deg, rgba(247, 201, 92, 0.12), rgba(125, 211, 252, 0.08)),
+    var(--glass);
 }
 
 .price-card .plan-badge {
@@ -2458,8 +2465,19 @@ h3 {
               </label>
               <button class="action glass full" type="button" id="confirm-one-trip-payment">Unlock one trip</button>
             </article>
+            <article class="price-card supporter-card">
+              <span class="plan-badge">Support</span>
+              <h3>Invest in SideStreet</h3>
+              <p>For friends, early supporters, or anyone who wants to back the idea.</p>
+              <ul>
+                <li>Support the launch</li>
+                <li>Help fund better city data</li>
+                <li>Back the next app version</li>
+              </ul>
+              <button class="action primary full" type="button" id="donation-upgrade">Donate / invest with Revolut</button>
+            </article>
           </div>
-          <p class="pricing-note">After payment, send proof to SideStreet. You only unlock after receiving a code.</p>
+          <p class="pricing-note">After payment, send proof to SideStreet. You only unlock after receiving a code. Supporter donations do not unlock Plus automatically.</p>
         </section>
 
         <section class="screen" id="account" data-screen-panel="account">
@@ -2909,7 +2927,8 @@ const PLUS_ACCESS_KEY = "sidestreet.plusAccess";
 const REVIEWS_RESET_KEY = "sidestreet.reviewsReset.v59";
 const PAYMENT_LINKS = {
   monthly: "https://revolut.me/manuel2olx?currency=EUR&amount=499",
-  oneTrip: "https://revolut.me/manuel2olx?currency=EUR&amount=199&note="
+  oneTrip: "https://revolut.me/manuel2olx?currency=EUR&amount=199&note=",
+  donation: "https://revolut.me/manuel2olx"
 };
 const UNLOCK_CODE_HASHES = {
   monthly: "3cd63064be2f0f2dbe6fc840e51aeba188c87df218806d7fac4e13ad13ccfd40",
@@ -4920,7 +4939,7 @@ function configuredPaymentLink(type) {
 function openCheckout(type) {
   const checkout = configuredPaymentLink(type);
   if (!checkout) {
-    const label = type === "monthly" ? "monthly" : "one-trip";
+    const label = type === "monthly" ? "monthly" : type === "donation" ? "donation / investor" : "one-trip";
     showToast(`${label} payment link is missing.`);
     return;
   }
@@ -5625,6 +5644,10 @@ $("#monthly-upgrade")?.addEventListener("click", () => {
 
 $("#one-trip-upgrade")?.addEventListener("click", () => {
   openCheckout("oneTrip");
+});
+
+$("#donation-upgrade")?.addEventListener("click", () => {
+  openCheckout("donation");
 });
 
 $("#confirm-monthly-payment")?.addEventListener("click", () => {
