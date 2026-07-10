@@ -2906,6 +2906,7 @@ const FREE_TRIP_LIMIT = 3;
 const FREE_TRIP_COUNT_KEY = "sidestreet.freeTripCount";
 const EXTRA_TRIPS_KEY = "sidestreet.extraTrips";
 const PLUS_ACCESS_KEY = "sidestreet.plusAccess";
+const REVIEWS_RESET_KEY = "sidestreet.reviewsReset.v59";
 const PAYMENT_LINKS = {
   monthly: "https://revolut.me/manuel2olx?currency=EUR&amount=499",
   oneTrip: "https://revolut.me/manuel2olx?currency=EUR&amount=199&note="
@@ -5121,6 +5122,12 @@ function getReviews() {
   }
 }
 
+function resetStoredReviewsOnce() {
+  if (localStorage.getItem(REVIEWS_RESET_KEY)) return;
+  localStorage.removeItem("hiddenPath.reviews");
+  localStorage.setItem(REVIEWS_RESET_KEY, "done");
+}
+
 function saveReview(review) {
   const reviews = getReviews();
   reviews.unshift({
@@ -5151,7 +5158,6 @@ function renderReviews() {
   if (!reviews.length) {
     list.innerHTML = `
       <article class="review-card">
-        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         <strong>No reviews yet</strong>
         <p>After a trip, leave a quick note about what worked, what felt local, and what you would skip next time.</p>
       </article>
@@ -5382,6 +5388,7 @@ restoreTrip();
 renderBaseStatus();
 applyPaymentReturn();
 updateUsageBanner();
+resetStoredReviewsOnce();
 renderReviews();
 setRating($("#review-rating")?.value || 5);
 setAuthMode("signup");
