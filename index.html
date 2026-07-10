@@ -733,13 +733,20 @@ h3 {
 
 .rating-row {
   grid-template-columns: repeat(5, minmax(0, 1fr));
+  max-width: 260px;
 }
 
 .rating-row .choice {
+  display: grid;
+  min-width: 0;
   min-height: 42px;
+  place-items: center;
+  padding: 0;
   color: var(--amber);
-  font-size: 0.82rem;
+  font-size: 1.04rem;
   letter-spacing: 0;
+  line-height: 1;
+  text-align: center;
 }
 
 .choice {
@@ -2379,11 +2386,11 @@ h3 {
               <div class="choice-block">
                 <span>Rating</span>
                 <div class="choice-row rating-row" id="rating-buttons" role="group" aria-label="Trip rating">
-                  <button class="choice" type="button" data-rating="1">★</button>
-                  <button class="choice" type="button" data-rating="2">★★</button>
-                  <button class="choice" type="button" data-rating="3">★★★</button>
-                  <button class="choice" type="button" data-rating="4">★★★★</button>
-                  <button class="choice is-active" type="button" data-rating="5">★★★★★</button>
+                  <button class="choice is-active" type="button" data-rating="1">&#9733;</button>
+                  <button class="choice is-active" type="button" data-rating="2">&#9733;</button>
+                  <button class="choice is-active" type="button" data-rating="3">&#9733;</button>
+                  <button class="choice is-active" type="button" data-rating="4">&#9733;</button>
+                  <button class="choice is-active" type="button" data-rating="5">&#9733;</button>
                 </div>
                 <input id="review-rating" type="hidden" value="5">
               </div>
@@ -4471,12 +4478,21 @@ function addDaysToDate(dateString, days) {
   const date = new Date(`${dateString}T00:00:00`);
   if (Number.isNaN(date.getTime())) return "";
   date.setDate(date.getDate() + Math.max(1, Number(days || 1)));
-  return date.toISOString().slice(0, 10);
+  return localIsoDate(date);
+}
+
+function bookingTripDays() {
+  return Math.max(1, Number(currentPlan?.days || $("#days")?.value || 3));
+}
+
+function calculatedReturnDate(departDate) {
+  return addDaysToDate(departDate, bookingTripDays());
 }
 
 let calendarCursor = new Date();
 calendarCursor = new Date(calendarCursor.getFullYear(), calendarCursor.getMonth(), 1);
 let calendarSelecting = "depart";
+let autoReturnDate = "";
 
 function localIsoDate(date) {
   const year = date.getFullYear();
@@ -4559,14 +4575,17 @@ function chooseCalendarDate(value) {
 
   if (calendarSelecting === "depart" || !depart || (depart && returnDate)) {
     departInput.value = value;
-    if (returnDate && clicked > returnDate) returnInput.value = "";
+    autoReturnDate = calculatedReturnDate(value);
+    returnInput.value = autoReturnDate;
     calendarSelecting = "return";
   } else if (clicked < depart) {
     departInput.value = value;
-    returnInput.value = "";
+    autoReturnDate = calculatedReturnDate(value);
+    returnInput.value = autoReturnDate;
     calendarSelecting = "return";
   } else {
     returnInput.value = value;
+    autoReturnDate = "";
     calendarSelecting = "depart";
   }
 
@@ -4579,7 +4598,7 @@ function bookingState() {
   const destination = destinationInput?.value.trim() || currentPlan?.city.name || "";
   const origin = $("#flight-origin")?.value.trim() || "";
   const depart = $("#flight-depart")?.value || "";
-  const returnDate = $("#flight-return")?.value || (depart && currentPlan ? addDaysToDate(depart, currentPlan.days) : "");
+  const returnDate = $("#flight-return")?.value || (depart ? calculatedReturnDate(depart) : "");
   const travelers = Math.max(1, Number($("#flight-travelers")?.value || "1"));
   return { origin, destination, depart, returnDate, travelers };
 }
@@ -4640,8 +4659,12 @@ function syncBookingFromPlan(force = false, fillReturn = true) {
   }
   const returnInput = $("#flight-return");
   const depart = $("#flight-depart")?.value || "";
-  if (fillReturn && returnInput && depart && !returnInput.value && currentPlan) {
-    returnInput.value = addDaysToDate(depart, currentPlan.days);
+  if (fillReturn && returnInput && depart) {
+    const nextReturn = calculatedReturnDate(depart);
+    if (force || !returnInput.value || returnInput.value === autoReturnDate) {
+      autoReturnDate = nextReturn;
+      returnInput.value = nextReturn;
+    }
   }
   renderFlightCalendar();
 }
@@ -4711,6 +4734,15 @@ function setScreen(name) {
 function setChoice(groupSelector, value, attr, inputSelector) {
   $$(groupSelector).forEach((button) => button.classList.toggle("is-active", button.dataset[attr] === value));
   $(inputSelector).value = value;
+}
+
+function setRating(value = 5) {
+  const rating = Math.max(1, Math.min(5, Number(value || 5)));
+  $$("#rating-buttons .choice").forEach((button) => {
+    button.classList.toggle("is-active", Number(button.dataset.rating) <= rating);
+  });
+  const input = $("#review-rating");
+  if (input) input.value = String(rating);
 }
 
 let surveyStep = 0;
@@ -5351,6 +5383,7 @@ renderBaseStatus();
 applyPaymentReturn();
 updateUsageBanner();
 renderReviews();
+setRating($("#review-rating")?.value || 5);
 setAuthMode("signup");
 renderAccount();
 applyGoogleOAuthReturn();
@@ -5560,7 +5593,7 @@ $("#calendar-grid")?.addEventListener("click", (event) => {
 $("#rating-buttons")?.addEventListener("click", (event) => {
   const button = event.target.closest("[data-rating]");
   if (!button) return;
-  setChoice("#rating-buttons .choice", button.dataset.rating, "rating", "#review-rating");
+  setRating(button.dataset.rating);
 });
 
 $("#review-form")?.addEventListener("submit", (event) => {
@@ -5575,7 +5608,7 @@ $("#review-form")?.addEventListener("submit", (event) => {
   saveReview({ id: `review-${Date.now()}`, city, text, rating, createdAt: new Date().toISOString() });
   $("#review-city").value = "";
   $("#review-text").value = "";
-  setChoice("#rating-buttons .choice", "5", "rating", "#review-rating");
+  setRating(5);
   showToast("Review saved.");
 });
 
@@ -5732,8 +5765,6 @@ $("#share-plan").addEventListener("click", async () => {
   }
   await sharePlanFile();
 });
-
-
 
 
 (function clearOldSideStreetServiceWorkers() {
